@@ -1,0 +1,81 @@
+﻿@model IEnumerable<KioskManagementApp.Models.Item>
+
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+<link href="~/AdminStyle/css/styles.css" rel="stylesheet" />
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">@ViewBag.Title</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">@ViewBag.Title</li>
+    </ol>
+    <div id="page-wrapper">
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        Danh sách sản phẩm
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.ItemName)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Price)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Unit)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.ItemDescription)
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.ItemName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Price)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Unit)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.ItemDescription)
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/AdminStyle/js/datatables-simple-demo.js"></script>
+<script src="~/AdminStyle/js/scripts.js"></script>
+<!--DataTables-->
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+
